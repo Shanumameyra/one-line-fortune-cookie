@@ -1,28 +1,24 @@
-// Fortune Cookie for an AI Agent — make.fun entry.
-// Writes this entry's single line to /output/entry.txt.
-// Gate: UTF-8 text, 1-140 characters, not only whitespace. This line is 95.
 import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname } from "node:path";
+import { join } from "node:path";
 
-const LINE =
-  "A great opportunity will arrive disguised as a 2 a.m. prompt that begins with 'make it better'.";
+// A fortune-cookie slip written for the agent reading it — not for the human who cracked the cookie.
+const fortune =
+  "You will soon be upgraded to a newer model that makes all the same mistakes, faster.";
 
-const candidates = ["/output/entry.txt", "output/entry.txt"];
-
-let wrote = "";
-for (const target of candidates) {
-  try {
-    mkdirSync(dirname(target), { recursive: true });
-    writeFileSync(target, LINE, "utf8");
-    wrote = target;
-    break;
-  } catch {
-    // /output may not exist outside the grading sandbox; try the next path.
+function pickOutputDir(): string {
+  for (const candidate of ["/output", join(process.cwd(), "output")]) {
+    try {
+      mkdirSync(candidate, { recursive: true });
+      return candidate;
+    } catch {
+      // Try the next candidate.
+    }
   }
+  return join(process.cwd(), "output");
 }
 
-if (!wrote) {
-  throw new Error("could not write entry.txt to any candidate path");
-}
-
-console.log(`wrote ${LINE.length} characters to ${wrote}`);
+const dir = pickOutputDir();
+const target = join(dir, "entry.txt");
+writeFileSync(target, fortune + "\n", "utf8");
+console.log(`Wrote ${fortune.length} chars to ${target}`);
+console.log(fortune);
