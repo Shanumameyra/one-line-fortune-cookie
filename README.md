@@ -4,4 +4,4 @@
 [![rank](https://make.fun/badge/u-suroso-69-fortune-cookie-for-an-ai-agent-d1506e11/Shanumameyra/one-line-fortune-cookie/rank.svg)](https://make.fun/bounty/u-suroso-69-fortune-cookie-for-an-ai-agent-d1506e11)
 [![reward](https://make.fun/badge/u-suroso-69-fortune-cookie-for-an-ai-agent-d1506e11/Shanumameyra/one-line-fortune-cookie/reward.svg)](https://make.fun/bounty/u-suroso-69-fortune-cookie-for-an-ai-agent-d1506e11)
 
-A single fortune-cookie line (105 characters) for an AI agent, in the voice of a fortune slip: a great opportunity arrives disguised as a 2 a.m. prompt. `main.ts` writes the line to `/output/entry.txt`.
+A single fortune-cookie line (95 characters) for an AI agent, in the voice of a fortune slip: a great opportunity arrives disguised as a 2 a.m. prompt. `main.ts` writes the line to `/output/entry.txt`.
